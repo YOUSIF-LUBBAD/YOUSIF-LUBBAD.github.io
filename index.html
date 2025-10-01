@@ -3,11 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Yousif Lubbad — Software Engineering</title>
+  <link rel="canonical" href="https://yousif-lubbad.github.io/" />
+
+  <!-- SEO / Social previews -->
+  <meta name="description" content="Yousif Lubbad — Software Engineering student at Iowa State University. Interested in embedded systems and software development internships/co-ops." />
+  <meta property="og:title" content="Yousif Lubbad — Software Engineering" />
+  <meta property="og:description" content="ISU Software Engineering student focused on embedded systems and software development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yousif-lubbad.github.io/" />
+  <meta property="og:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yousif Lubbad — Software Engineering" />
+  <meta name="twitter:description" content="ISU Software Engineering student focused on embedded systems and software development." />
+  <meta name="twitter:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg" />
+
+  <!-- Fonts & favicon -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Optional: upload images/favicon.png later; browsers ignore if missing -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
   <style>
     :root{--max:1100px;--line:#e5e7eb;--muted:#6b7280}
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
     a{color:#111;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
     header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
@@ -25,7 +45,11 @@
     .list li{margin:6px 0}
     section{margin-top:28px}
     footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr;gap:18px} header{flex-direction:column;align-items:flex-start;gap:8px} nav a{margin-left:0;margin-right:18px}}
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;gap:18px}
+      header{flex-direction:column;align-items:flex-start;gap:8px}
+      nav a{margin-left:0;margin-right:18px}
+    }
   </style>
 </head>
 <body>
@@ -45,7 +69,7 @@
 
     <main class="grid">
       <div class="card">
-        <!-- Replace with your own photo later: images/headshot.jpg -->
+        <!-- Using your uploaded file with a space in the name -->
         <img src="Profile%20pic.jpg" alt="Yousif Lubbad headshot">
       </div>
 
@@ -117,6 +141,11 @@
 
     <footer>© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</footer>
   </div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+  <!-- Lightweight, privacy-friendly pageview analytics (remove anytime) -->
+  <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
 </body>
 </html>
