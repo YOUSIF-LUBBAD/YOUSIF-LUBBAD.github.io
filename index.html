@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yousif Lubbad — Product / UX</title>
+  <title>Yousif Lubbad — Software Engineering</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{--max:1100px;--line:#e5e7eb;--muted:#6b7280}
@@ -14,12 +14,16 @@
     .brand{font-weight:800;font-size:28px}
     .tag{color:var(--muted);margin-top:4px}
     nav a{margin-left:22px;font-weight:600}
-    .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px}
+    .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
     .card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
     .card img{display:block;width:100%;height:auto}
-    .aside h2{margin:0 0 12px 0;font-size:28px}
-    ul{margin:10px 0 0 0;padding:0;list-style:none}
-    ul li{margin:6px 0}
+    h2{margin:0 0 10px 0}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+    .btn{border:1px solid #111;border-radius:10px;padding:10px 14px;font-weight:600}
+    .btn.ghost{border-color:var(--line)}
+    .list{margin:8px 0 0 0;padding:0;list-style:none}
+    .list li{margin:6px 0}
+    section{margin-top:28px}
     footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px}
     @media (max-width:900px){.grid{grid-template-columns:1fr;gap:18px} header{flex-direction:column;align-items:flex-start;gap:8px} nav a{margin-left:0;margin-right:18px}}
   </style>
@@ -29,38 +33,74 @@
     <header>
       <div>
         <div class="brand">YOUSIF LUBBAD</div>
-        <div class="tag">Designing experiences, systems and type. Product Design.</div>
+        <div class="tag">Student at Iowa State University · Software Engineering</div>
       </div>
       <nav>
-        <a href="#work">Work</a>
-        <a href="#blog">Blog</a>
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main class="grid">
       <div class="card">
-        <!-- replace this with your own image below -->
-        <img src="images/sketch.jpg" alt="Wireframe sketch">
+        <!-- Replace with your own photo later: images/headshot.jpg -->
+        <img src="https://picsum.photos/900/650" alt="Photo or sketch placeholder">
       </div>
 
-      <aside class="aside" id="about">
-        <h2>Hi, I’m Yousif</h2>
+      <aside id="about">
+        <h2>Hi, I'm Yousif</h2>
         <p>
-          I build clean, usable interfaces and prototypes from idea to handoff.
-          Comfortable with user research, wireframing, and shipping production-ready assets.
+          I’m a <strong>Software Engineering student at Iowa State University</strong> interested in
+          <strong>embedded systems</strong> and <strong>software development</strong>. I’m actively seeking
+          <strong>internships</strong> and <strong>co-ops</strong> where I can build real products, write clean code,
+          and learn quickly.
         </p>
-        <ul>
-          <li><strong>Focus:</strong> UI/UX, Interaction, Mobile</li>
-          <li><strong>Tools:</strong> Figma, Adobe CC, HTML/CSS</li>
-          <li><strong>Contact:</strong> <a href="mailto:yousif@example.com">yousif@example.com</a></li>
+
+        <ul class="list">
+          <li><strong>Languages:</strong> C, Java, Python, HTML/CSS</li>
+          <li><strong>Strengths:</strong> OOP, data structures/algorithms, debugging</li>
+          <li><strong>Tools:</strong> Git/GitHub, Eclipse, Visual Studio, Android Studio</li>
+          <li><strong>Grad target:</strong> Dec 2027</li>
         </ul>
+
+        <div class="btns">
+          <a class="btn" href="Yousif_Lubbad_Resume.pdf">Resume (PDF)</a>
+          <a class="btn ghost" href="https://github.com/YOUSIF-LUBBAD">GitHub</a>
+          <a class="btn ghost" href="https://linkedin.com/in/yousiflubbad">LinkedIn</a>
+        </div>
       </aside>
     </main>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="list">
+        <li><strong>Minecraft Terminal (C):</strong> 3D text-based engine with movement, collision,
+          block place/break, save/load; optimized with transformation matrices.</li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul class="list">
+        <li><strong>Teaching Assistant, Iowa State University:</strong> Lead labs and office hours for an
+          intro C course; support debugging and improve course materials.</li>
+        <li><strong>Database Assistant & Interpreter:</strong> Maintained and improved a scheduling database
+          (Access + VBA), adding automation and debugging scripts.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="list">
+        <li><strong>Email:</strong> <a href="mailto:ylubbad@iastate.edu">ylubbad@iastate.edu</a></li>
+        <li><strong>Phone:</strong> +1 (605) 910-2406</li>
+      </ul>
+    </section>
 
     <footer>© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</footer>
   </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
-
