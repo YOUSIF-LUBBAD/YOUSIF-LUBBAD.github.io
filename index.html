@@ -79,7 +79,8 @@
     .list{margin:8px 0 0 0;padding:0;list-style:none}
     .list li{margin:6px 0}
     section{margin-top:28px}
-    footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px}
+    footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .badge{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--ink);background:var(--card)}
 
     /* Motion: floaty image */
     .floaty{transition:transform .6s ease, box-shadow .6s ease;animation:gentleFloat 6s ease-in-out infinite}
@@ -90,14 +91,15 @@
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .7s ease, transform .7s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
-    /* Project cards tilt */
+    /* Project cards tilt + clickable */
     .projects{display:grid;gap:14px}
     .project{
+      display:block; /* make whole card clickable */
       border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card);
       transition:transform .18s ease, box-shadow .18s ease;will-change:transform
     }
     .project:hover{box-shadow:0 10px 24px rgba(0,0,0,.12)}
-    .project-title{font-weight:700}
+    .project-title{font-weight:700;display:block;margin-bottom:4px}
 
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
@@ -162,14 +164,14 @@
     <section id="projects" class="reveal">
       <h2>Projects</h2>
       <div class="projects">
-        <div class="project tilt">
-          <div class="project-title">Minecraft Terminal (C)</div>
+        <a class="project tilt" href="https://github.com/YOUSIF-LUBBAD/Minecraft-Terminal-Yousif" target="_blank" rel="noopener noreferrer" aria-label="Open Minecraft Terminal project on GitHub">
+          <span class="project-title">Minecraft Terminal (C)</span>
           <div>3D text-based engine with movement, collision, block place/break, save/load; optimized rendering with transformation matrices (100+ FPS).</div>
-        </div>
-        <div class="project tilt">
-          <div class="project-title">Pet Adoption Center (HTML + Java)</div>
+        </a>
+        <a class="project tilt" href="https://github.com/YOUSIF-LUBBAD/KC-FinalProject" target="_blank" rel="noopener noreferrer" aria-label="Open Pet Adoption Center project on GitHub">
+          <span class="project-title">Pet Adoption Center (HTML + Java)</span>
           <div>Web app that lists adoptable pets, supports search/filter, and handles adoption requests; version-controlled on GitHub.</div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -202,7 +204,10 @@
       </ul>
     </section>
 
-    <footer class="reveal">© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</footer>
+    <footer class="reveal">
+      <span>© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</span>
+      <span class="badge" id="viewBadge" title="Total views">Views: —</span>
+    </footer>
   </div>
 
   <script>
@@ -252,6 +257,14 @@
         card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateZ(0)';
       });
     });
+
+    // Total views badge (free, no account): CountAPI
+    // Namespace/key can be anything stable; using your site URL.
+    const badge = document.getElementById('viewBadge');
+    fetch('https://api.countapi.xyz/hit/yousif-lubbad.github.io/visits')
+      .then(r=>r.json())
+      .then(d=>{ if(d && typeof d.value === 'number') badge.textContent = 'Views: ' + d.value; })
+      .catch(()=>{ badge.textContent = 'Views: n/a'; });
   </script>
 
   <!-- Lightweight, privacy-friendly pageview analytics (remove anytime) -->
