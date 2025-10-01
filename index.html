@@ -8,35 +8,42 @@
   <link rel="canonical" href="https://yousif-lubbad.github.io/" />
 
   <!-- SEO / Social previews -->
-  <meta name="description" content="Yousif Lubbad — Software Engineering student at Iowa State University. Interested in embedded systems and software development internships/co-ops." />
-  <meta property="og:title" content="Yousif Lubbad — Software Engineering" />
-  <meta property="og:description" content="ISU Software Engineering student focused on embedded systems and software development." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yousif-lubbad.github.io/" />
-  <meta property="og:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Yousif Lubbad — Software Engineering" />
-  <meta name="twitter:description" content="ISU Software Engineering student focused on embedded systems and software development." />
-  <meta name="twitter:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg" />
+  <meta name="description" content="Yousif Lubbad — Software Engineering student at Iowa State University. Interested in embedded systems and software development internships/co-ops.">
+  <meta property="og:title" content="Yousif Lubbad — Software Engineering">
+  <meta property="og:description" content="ISU Software Engineering student focused on embedded systems and software development.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yousif-lubbad.github.io/">
+  <meta property="og:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yousif Lubbad — Software Engineering">
+  <meta name="twitter:description" content="ISU Software Engineering student focused on embedded systems and software development.">
+  <meta name="twitter:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg">
 
   <!-- Fonts & favicon -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <!-- Optional: upload images/favicon.png later; browsers ignore if missing -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <style>
     :root{--max:1100px;--line:#e5e7eb;--muted:#6b7280}
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:#111;text-decoration:none}
+    a{color:#111;text-decoration:none;position:relative}
+    /* fancy underline on hover */
+    nav a::after, .btn::after{
+      content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:#111; transition:width .26s ease;
+    }
+    nav a:hover::after, .btn:hover::after{ width:100% }
+
     .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
     header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
     .brand{font-weight:800;font-size:28px}
     .tag{color:var(--muted);margin-top:4px}
     nav a{margin-left:22px;font-weight:600}
+
     .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
-    .card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;will-change:transform,box-shadow}
     .card img{display:block;width:100%;height:auto}
+
     h2{margin:0 0 10px 0}
     .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
     .btn{border:1px solid #111;border-radius:10px;padding:10px 14px;font-weight:600}
@@ -45,6 +52,34 @@
     .list li{margin:6px 0}
     section{margin-top:28px}
     footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px}
+
+    /* ===== Motion goodness ===== */
+    /* Float/tilt on hero card */
+    .floaty{
+      transition: transform .6s ease, box-shadow .6s ease;
+      animation: gentleFloat 6s ease-in-out infinite;
+    }
+    .floaty:hover{
+      transform: translateY(-6px) rotate3d(1,1,0,0.6deg) scale(1.01);
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+    }
+    @keyframes gentleFloat{
+      0%,100%{ transform: translateY(0) }
+      50%{ transform: translateY(-4px) }
+    }
+
+    /* Fade-up on scroll */
+    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease }
+    .reveal.visible{ opacity:1; transform: translateY(0) }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .floaty{ animation:none }
+      .reveal{ opacity:1; transform:none }
+      nav a::after, .btn::after{ transition:none }
+      .floaty:hover{ transform:none; box-shadow:none }
+    }
+
     @media (max-width:900px){
       .grid{grid-template-columns:1fr;gap:18px}
       header{flex-direction:column;align-items:flex-start;gap:8px}
@@ -54,7 +89,7 @@
 </head>
 <body>
   <div class="wrap">
-    <header>
+    <header class="reveal">
       <div>
         <div class="brand">YOUSIF LUBBAD</div>
         <div class="tag">Student at Iowa State University · Software Engineering</div>
@@ -68,12 +103,11 @@
     </header>
 
     <main class="grid">
-      <div class="card">
-        <!-- Using your uploaded file with a space in the name -->
+      <div class="card floaty reveal">
         <img src="Profile%20pic.jpg" alt="Yousif Lubbad headshot">
       </div>
 
-      <aside id="about">
+      <aside id="about" class="reveal">
         <h2>Hi, I’m Yousif Lubbad</h2>
         <p>
           I’m a <strong>Software Engineering student at Iowa State University</strong> focused on
@@ -96,7 +130,7 @@
       </aside>
     </main>
 
-    <section id="projects">
+    <section id="projects" class="reveal">
       <h2>Projects</h2>
       <ul class="list">
         <li>
@@ -110,7 +144,7 @@
       </ul>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="reveal">
       <h2>Experience</h2>
       <ul class="list">
         <li>
@@ -131,7 +165,7 @@
       </ul>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="reveal">
       <h2>Contact</h2>
       <ul class="list">
         <li><strong>Email:</strong> <a href="mailto:ylubbad@iastate.edu">ylubbad@iastate.edu</a></li>
@@ -139,13 +173,25 @@
       </ul>
     </section>
 
-    <footer>© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</footer>
+    <footer class="reveal">© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Fade-up on scroll using IntersectionObserver
+    const els = document.querySelectorAll('.reveal');
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, {rootMargin: '0px 0px -10% 0px'}) : null;
+    if(io){ els.forEach(el=>io.observe(el)); } else { els.forEach(el=>el.classList.add('visible')); }
+  </script>
 
   <!-- Lightweight, privacy-friendly pageview analytics (remove anytime) -->
   <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade"></noscript>
 </body>
 </html>
