@@ -6,6 +6,7 @@
 
   <title>Yousif Lubbad — Software Engineering</title>
   <link rel="canonical" href="https://yousif-lubbad.github.io/" />
+  <meta name="color-scheme" content="light dark">
 
   <!-- SEO / Social previews -->
   <meta name="description" content="Yousif Lubbad — Software Engineering student at Iowa State University. Interested in embedded systems and software development internships/co-ops.">
@@ -24,60 +25,85 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <style>
-    :root{--max:1100px;--line:#e5e7eb;--muted:#6b7280}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:#111;text-decoration:none;position:relative}
-    /* fancy underline on hover */
-    nav a::after, .btn::after{
-      content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:#111; transition:width .26s ease;
+    /* ===== Theme tokens ===== */
+    :root{
+      --bg:#ffffff; --text:#111111; --muted:#6b7280; --line:#e5e7eb; --ink:#111111; --card:#ffffff;
+      --glow1:#7c3aed; --glow2:#06b6d4; --glow3:#22c55e;
+      --max:1100px;
     }
-    nav a:hover::after, .btn:hover::after{ width:100% }
+    .dark{
+      --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3af; --line:#1f2430; --ink:#f3f4f6; --card:#0f1115;
+      --glow1:#8b5cf6; --glow2:#22d3ee; --glow3:#34d399;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+
+    a{color:var(--ink);text-decoration:none;position:relative}
+    nav a::after,.btn::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--ink);transition:width .26s ease}
+    nav a:hover::after,.btn:hover::after{width:100%}
 
     .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;gap:16px}
     .brand{font-weight:800;font-size:28px}
     .tag{color:var(--muted);margin-top:4px}
     nav a{margin-left:22px;font-weight:600}
 
+    /* Dark mode toggle */
+    .toggle{
+      border:1px solid var(--line);background:transparent;color:var(--ink);
+      padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer
+    }
+
     .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
-    .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;will-change:transform,box-shadow}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative
+    }
     .card img{display:block;width:100%;height:auto}
+
+    /* Gradient glow behind photo */
+    .glow{position:relative;isolation:isolate}
+    .glow::before{
+      content:"";position:absolute;inset:-12%;z-index:-1;filter:blur(36px);
+      background:conic-gradient(from 0deg, var(--glow1), var(--glow2), var(--glow3), var(--glow1));
+      opacity:.5;animation:shimmer 10s linear infinite
+    }
+    @keyframes shimmer{to{transform:rotate(1turn)}}
 
     h2{margin:0 0 10px 0}
     .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
-    .btn{border:1px solid #111;border-radius:10px;padding:10px 14px;font-weight:600}
+    .btn{border:1px solid var(--ink);border-radius:10px;padding:10px 14px;font-weight:600}
     .btn.ghost{border-color:var(--line)}
     .list{margin:8px 0 0 0;padding:0;list-style:none}
     .list li{margin:6px 0}
     section{margin-top:28px}
     footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px}
 
-    /* ===== Motion goodness ===== */
-    /* Float/tilt on hero card */
-    .floaty{
-      transition: transform .6s ease, box-shadow .6s ease;
-      animation: gentleFloat 6s ease-in-out infinite;
-    }
-    .floaty:hover{
-      transform: translateY(-6px) rotate3d(1,1,0,0.6deg) scale(1.01);
-      box-shadow: 0 18px 40px rgba(0,0,0,.10);
-    }
-    @keyframes gentleFloat{
-      0%,100%{ transform: translateY(0) }
-      50%{ transform: translateY(-4px) }
-    }
+    /* Motion: floaty image */
+    .floaty{transition:transform .6s ease, box-shadow .6s ease;animation:gentleFloat 6s ease-in-out infinite}
+    .floaty:hover{transform:translateY(-6px) rotate3d(1,1,0,0.6deg) scale(1.01);box-shadow:0 18px 40px rgba(0,0,0,.15)}
+    @keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
     /* Fade-up on scroll */
-    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease }
-    .reveal.visible{ opacity:1; transform: translateY(0) }
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Project cards tilt */
+    .projects{display:grid;gap:14px}
+    .project{
+      border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card);
+      transition:transform .18s ease, box-shadow .18s ease;will-change:transform
+    }
+    .project:hover{box-shadow:0 10px 24px rgba(0,0,0,.12)}
+    .project-title{font-weight:700}
 
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .floaty{ animation:none }
-      .reveal{ opacity:1; transform:none }
-      nav a::after, .btn::after{ transition:none }
-      .floaty:hover{ transform:none; box-shadow:none }
+      .floaty{animation:none}.reveal{opacity:1;transform:none}.glow::before{animation:none}
+      nav a::after,.btn::after{transition:none}
+      .project{transition:none}
     }
 
     @media (max-width:900px){
@@ -94,16 +120,19 @@
         <div class="brand">YOUSIF LUBBAD</div>
         <div class="tag">Student at Iowa State University · Software Engineering</div>
       </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div style="display:flex;align-items:center;gap:12px">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="themeToggle" class="toggle" aria-pressed="false" title="Toggle dark mode">🌙 Dark</button>
+      </div>
     </header>
 
     <main class="grid">
-      <div class="card floaty reveal">
+      <div class="glow card floaty reveal">
         <img src="Profile%20pic.jpg" alt="Yousif Lubbad headshot">
       </div>
 
@@ -132,16 +161,16 @@
 
     <section id="projects" class="reveal">
       <h2>Projects</h2>
-      <ul class="list">
-        <li>
-          <strong>Minecraft Terminal (C):</strong> 3D text-based engine with movement, collision,
-          block place/break, save/load; optimized rendering with transformation matrices (100+ FPS).
-        </li>
-        <li>
-          <strong>Pet Adoption Center (HTML + Java):</strong> Web app that lists adoptable pets,
-          supports search/filter, and handles adoption requests; version-controlled on GitHub.
-        </li>
-      </ul>
+      <div class="projects">
+        <div class="project tilt">
+          <div class="project-title">Minecraft Terminal (C)</div>
+          <div>3D text-based engine with movement, collision, block place/break, save/load; optimized rendering with transformation matrices (100+ FPS).</div>
+        </div>
+        <div class="project tilt">
+          <div class="project-title">Pet Adoption Center (HTML + Java)</div>
+          <div>Web app that lists adoptable pets, supports search/filter, and handles adoption requests; version-controlled on GitHub.</div>
+        </div>
+      </div>
     </section>
 
     <section id="experience" class="reveal">
@@ -180,14 +209,49 @@
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Fade-up on scroll using IntersectionObserver
-    const els = document.querySelectorAll('.reveal');
-    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    // Fade-up on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = ('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+          });
+        }, {rootMargin:'0px 0px -10% 0px'})
+      : null;
+    if(io){ reveals.forEach(el=>io.observe(el)); } else { reveals.forEach(el=>el.classList.add('visible')); }
+
+    // Dark mode toggle (stores preference)
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    const pref = localStorage.getItem('theme');
+    if(pref === 'dark' || (!pref && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+      root.classList.add('dark');
+      btn.textContent = '☀️ Light';
+      btn.setAttribute('aria-pressed','true');
+    }
+    btn.addEventListener('click', ()=>{
+      const isDark = root.classList.toggle('dark');
+      btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+      btn.setAttribute('aria-pressed', isDark ? 'true':'false');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Tilt effect on project cards
+    const tilts = document.querySelectorAll('.tilt');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    tilts.forEach(card=>{
+      if(reduceMotion) return;
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const rx = ((y / r.height) - 0.5) * -8;  // rotateX
+        const ry = ((x / r.width)  - 0.5) *  8;  // rotateY
+        card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
       });
-    }, {rootMargin: '0px 0px -10% 0px'}) : null;
-    if(io){ els.forEach(el=>io.observe(el)); } else { els.forEach(el=>el.classList.add('visible')); }
+      card.addEventListener('mouseleave', ()=>{
+        card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateZ(0)';
+      });
+    });
   </script>
 
   <!-- Lightweight, privacy-friendly pageview analytics (remove anytime) -->
