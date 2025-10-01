@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yousif Lubbad — Product / UX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--max:1100px;--line:#e5e7eb;--muted:#6b7280}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:#111;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    .brand{font-weight:800;font-size:28px}
+    .tag{color:var(--muted);margin-top:4px}
+    nav a{margin-left:22px;font-weight:600}
+    .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px}
+    .card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .card img{display:block;width:100%;height:auto}
+    .aside h2{margin:0 0 12px 0;font-size:28px}
+    ul{margin:10px 0 0 0;padding:0;list-style:none}
+    ul li{margin:6px 0}
+    footer{color:var(--muted);font-size:14px;margin:42px 0 10px;border-top:1px solid var(--line);padding-top:16px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr;gap:18px} header{flex-direction:column;align-items:flex-start;gap:8px} nav a{margin-left:0;margin-right:18px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="brand">YOUSIF LUBBAD</div>
+        <div class="tag">Designing experiences, systems and type. Product Design.</div>
+      </div>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <div class="card">
+        <!-- replace this with your own image below -->
+        <img src="images/sketch.jpg" alt="Wireframe sketch">
+      </div>
+
+      <aside class="aside" id="about">
+        <h2>Hi, I’m Yousif</h2>
+        <p>
+          I build clean, usable interfaces and prototypes from idea to handoff.
+          Comfortable with user research, wireframing, and shipping production-ready assets.
+        </p>
+        <ul>
+          <li><strong>Focus:</strong> UI/UX, Interaction, Mobile</li>
+          <li><strong>Tools:</strong> Figma, Adobe CC, HTML/CSS</li>
+          <li><strong>Contact:</strong> <a href="mailto:yousif@example.com">yousif@example.com</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer>© <span id="y"></span> Yousif Lubbad · Built with GitHub Pages</footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
+
