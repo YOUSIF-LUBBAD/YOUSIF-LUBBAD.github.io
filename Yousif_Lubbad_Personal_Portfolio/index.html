@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yousif Lubbad is a Software Engineering student at Iowa State University seeking software engineering, embedded software, and embedded systems internships. Explore his Python, C/C++, computer vision, and HIL experience.">
+  <meta name="color-scheme" content="light dark">
+  <title>Yousif Lubbad | Software Engineering Portfolio</title>
+  <link rel="canonical" href="https://yousif-lubbad.github.io/">
+  <meta property="og:title" content="Yousif Lubbad — Software Engineering">
+  <meta property="og:description" content="ISU Software Engineering student focused on embedded systems and software development.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yousif-lubbad.github.io/">
+  <meta property="og:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yousif Lubbad — Software Engineering">
+  <meta name="twitter:description" content="ISU Software Engineering student focused on embedded systems and software development.">
+  <meta name="twitter:image" content="https://yousif-lubbad.github.io/Profile%20pic.jpg">
+
+  <!-- External CSS: shared typography, colors, and responsive layout. -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Internal CSS: the page container and project panels. -->
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .project {
+      margin-bottom: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background-color: var(--surface);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#about" aria-label="Yousif Lubbad, About Me">
+        <span class="brand-mark" aria-hidden="true">YL</span><span>Yousif Lubbad</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" hidden>Dark mode</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="about-section" aria-labelledby="about-heading" tabindex="-1">
+      <div class="container about-grid">
+        <figure class="portrait">
+          <img src="./images/profile.jpg" alt="Yousif Lubbad wearing glasses and a navy polo shirt" width="1024" height="1536" fetchpriority="high">
+          <figcaption>Ames, Iowa · Iowa State University</figcaption>
+        </figure>
+        <div class="about-copy">
+          <p class="eyebrow">About Me</p>
+          <h1 id="about-heading">Yousif Lubbad</h1>
+          <!-- Inline CSS: a distinct style for the profile role. -->
+          <p class="role" style="font-family: 'Courier New', Courier, monospace; color: var(--accent); font-weight: 700;">Software Engineering Student</p>
+          <p>I'm a Software Engineering student at <strong>Iowa State University</strong> interested in software development, embedded software, and embedded systems. I work with Python, Java, and C/C++, and I enjoy building software that connects to real hardware.</p>
+          <p>During my eight-month co-op at <strong>Sub-Zero Group</strong>, I developed Python software for robotic UI testing, built a computer vision pipeline, and worked on systems for testing embedded controls. I've also supported students learning C as an undergraduate teaching assistant.</p>
+          <div class="education-summary">
+            <p><strong>B.S. in Software Engineering</strong> · Expected May 2028</p>
+            <p>Overall GPA: <strong>3.4</strong> · Engineering GPA: <strong>4.0</strong></p>
+          </div>
+          <ul class="skills" aria-label="Programming languages and tools">
+            <li>Python</li><li>Java</li><li>C / C++</li><li>Embedded Systems</li><li>Computer Vision</li>
+          </ul>
+          <div class="actions">
+            <a class="button button-primary" href="#projects">View my projects</a>
+            <a class="button" href="./documents/Yousif_Lubbad_Resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
+            <a class="button" href="./documents/Yousif_Lubbad_Resume.pdf" download="Yousif_Lubbad_Resume.pdf">Download PDF</a>
+            <a class="button" href="https://www.linkedin.com/in/yousiflubbad/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="sr-only">(opens in a new tab)</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="container highlights-wrap">
+        <p class="eyebrow">At a Glance</p>
+        <ul class="highlights" aria-label="Selected engineering highlights">
+          <li><a href="#experience"><strong>8 months</strong><span>Engineering co-op at Sub-Zero Group</span><span class="highlight-link">Explore my experience <span aria-hidden="true">↗</span></span></a></li>
+          <li><a href="#experience"><strong>60+ tests</strong><span>Per automated robotic UI test suite</span><span class="highlight-link">See the automation work <span aria-hidden="true">↗</span></span></a></li>
+          <li><a href="#projects"><strong>100+ FPS</strong><span>Terminal graphics in my C game engine</span><span class="highlight-link">Explore Minecraft Terminal <span aria-hidden="true">↗</span></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-tinted" aria-labelledby="projects-heading" tabindex="-1">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Selected Work</p><h2 id="projects-heading">Projects</h2></div>
+        <article class="project featured-project" aria-labelledby="project-one-heading">
+          <figure class="project-visual">
+            <img src="./images/project1.jpg" alt="Minecraft Terminal rendering pipeline: 3D block data becomes camera-space points, projected triangles, and colored terminal characters" width="1200" height="900" loading="lazy">
+            <figcaption>Rendering pipeline from the project's C implementation.</figcaption>
+          </figure>
+          <div class="project-copy">
+            <p class="project-category">C · ncurses · 3D Graphics</p>
+            <h3 id="project-one-heading">Minecraft Terminal</h3>
+            <p>I developed a Minecraft-inspired 3D game engine in C that renders the world as text in the terminal. It supports player movement, collision detection, placing and breaking blocks, and saving and loading worlds.</p>
+            <p>I optimized rendering with transformation matrices for terminal graphics at <strong>100+ FPS</strong>, using ncurses to display the scene. The project brought together C programming, 3D projection, world data, and interactive controls.</p>
+            <details class="project-details">
+              <summary>Inside the engine</summary>
+              <dl>
+                <dt>The challenge</dt><dd>Make a 3D block world playable inside a text terminal.</dd>
+                <dt>The approach</dt><dd>Transform world coordinates into camera space, project the scene into triangles, and use ncurses to draw colored terminal characters.</dd>
+                <dt>The result</dt><dd>Interactive movement and collision detection, block placement and removal, and worlds that can be saved and loaded.</dd>
+              </dl>
+            </details>
+            <a class="text-link" href="https://github.com/YOUSIF-LUBBAD/Minecraft-Terminal-Yousif" target="_blank" rel="noopener noreferrer">View Minecraft Terminal on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project secondary-project" aria-labelledby="project-two-heading">
+          <div><p class="project-category">Java · Android Studio · XML</p><h3 id="project-two-heading">Pet Adoption Center</h3></div>
+          <div>
+            <p>An Android class project with a basic sign-in screen and a list of pets showing their names, ages, and pictures. I used Java activities, XML layouts, and a custom list adapter to connect the pet data to the interface.</p>
+            <details class="project-details">
+              <summary>Inside the app</summary>
+              <dl>
+                <dt>The goal</dt><dd>Build a simple Android interface for browsing pets available for adoption.</dd>
+                <dt>The implementation</dt><dd>Java activities handle the screens, XML defines their layouts, and a custom adapter maps each pet's name, age, and image to a list row.</dd>
+                <dt>The result</dt><dd>A class project connecting a basic sign-in screen to a visual pet list.</dd>
+              </dl>
+            </details>
+            <a class="text-link" href="https://github.com/YOUSIF-LUBBAD/KC-FinalProject" target="_blank" rel="noopener noreferrer">View Pet Adoption Center on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="experience-heading" tabindex="-1">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Engineering &amp; Teaching</p><h2 id="experience-heading">Experience</h2></div>
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="experience-meta"><p>Jan – Aug 2026</p><p>Madison, Wisconsin</p></div>
+            <div>
+              <h3>Embedded Software Test Automation Engineering Co-op</h3>
+              <p class="organization">Sub-Zero Group, Inc.</p>
+              <ul class="experience-details">
+                <li>Developed <strong>Python software</strong> to automate hundreds of DICE ice-machine UI validation steps, using a robotic arm and camera to execute <strong>60+ tests</strong> per multi-hour suite.</li>
+                <li>Built a five-stage <strong>OpenCV/EasyOCR</strong> pipeline: screen detection, preprocessing, OCR, template matching, and expected-versus-actual validation. Generated pytest HTML pass/fail reports with captured failure images.</li>
+                <li>Built the <strong>NI VeriStand</strong> environment and custom hardware-in-the-loop (HIL) interface for GR3 gas-range controls, including Python channel mapping, RTD temperature monitoring, serial-interface testing, and function validation.</li>
+                <li>Assembled, wired, and debugged HIL/DUT fixtures across <strong>three appliance platforms</strong>: French Door, Hybrid-M, and GR3. Used open-circuit fault simulation to validate embedded control-board behavior.</li>
+              </ul>
+              <p class="tool-note">Python · OpenCV · EasyOCR · pytest · NI VeriStand · HIL</p>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="experience-meta"><p>Jan 2025 – Jan 2026</p><p>Ames, Iowa</p></div>
+            <div>
+              <h3>Undergraduate Teaching Assistant</h3>
+              <p class="organization">Iowa State University · Electrical &amp; Computer Engineering</p>
+              <ul class="experience-details">
+                <li><strong>Primary TA for SE 1850</strong> in Spring and Fall 2025, an introductory C programming course with approximately 200 students. Led two lab sections and held five office hours per week.</li>
+                <li><strong>TA for EE 2850</strong> in Fall 2025. Led two lab sections, held four office hours per week, proctored exams, and graded coursework.</li>
+                <li>Provided one-on-one support with C programming and debugging, helped design exams, activities, and labs, and improved course materials.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="experience-meta"><p>Sep 2020 – Oct 2024</p><p>Sioux Falls, South Dakota</p></div>
+            <div>
+              <h3>Database Systems Assistant &amp; Interpreter</h3>
+              <p class="organization">A to Z World Languages, Inc.</p>
+              <ul class="experience-details">
+                <li>Supported the move from an outdated Microsoft Access 2003 system to a newer database solution.</li>
+                <li>Worked with software engineers to test, debug, document, and improve database features and workflows.</li>
+                <li>Managed company records and interpreter appointments, coordinating with hospitals, universities, schools, courts, and other clients.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-tinted" aria-labelledby="skills-heading" tabindex="-1">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">What I Work With</p><h2 id="skills-heading">Skills</h2></div>
+        <div class="skills-grid">
+          <article class="project skill-group">
+            <h3>Software Development</h3>
+            <p>C, C++, Java, Python, HTML, and CSS.</p>
+            <p>Object-oriented programming, data structures, and algorithms.</p>
+          </article>
+          <article class="project skill-group">
+            <h3>Embedded Systems &amp; Automation</h3>
+            <p>Hardware-in-the-loop (HIL), CAN, NI VeriStand, NI LabVIEW, and automated test equipment (ATE).</p>
+          </article>
+          <article class="project skill-group">
+            <h3>Computer Vision &amp; Testing</h3>
+            <p>OpenCV, EasyOCR, OCR, pytest, software testing, system testing, and regression testing.</p>
+          </article>
+          <article class="project skill-group">
+            <h3>Development &amp; Collaboration Tools</h3>
+            <p>Git, GitHub, GitLab, Azure DevOps, GitKraken, Android Studio, IntelliJ, Jama, and TestRail.</p>
+          </article>
+          <article class="project skill-group">
+            <h3>Databases</h3>
+            <p>Microsoft Access and VBA, with experience supporting database modernization, testing, and documentation.</p>
+          </article>
+          <article class="project skill-group">
+            <h3>Languages</h3>
+            <p>English: native<br>Arabic: native<br>Bulgarian: intermediate</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading" tabindex="-1">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Get in Touch</p><h2 id="contact-heading">Contact Me</h2>
+          <p>I'm seeking <strong>software engineering, embedded software, and embedded systems internships</strong>. I'd be glad to connect about opportunities where I can contribute, learn, and build useful software.</p>
+        </div>
+        <ul class="contact-links">
+          <li>
+            <span>Email</span>
+            <div class="email-actions"><a id="email-link" href="mailto:ylubbad@iastate.edu">ylubbad@iastate.edu</a><button id="copy-email" class="copy-button" type="button" hidden>Copy email</button></div>
+            <input id="email-to-copy" class="copy-fallback" type="text" value="ylubbad@iastate.edu" aria-label="Email address to copy" readonly hidden>
+            <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          </li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/yousiflubbad/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yousiflubbad<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><span>GitHub</span><a href="https://github.com/YOUSIF-LUBBAD" target="_blank" rel="noopener noreferrer">github.com/YOUSIF-LUBBAD<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><span>Phone</span><a href="tel:+16059102406">+1 (605) 910-2406</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><p>&copy; 2026 Yousif Lubbad</p><a href="#about">Back to top ↑</a></div></footer>
+  <script src="./script.js" defer></script>
+</body>
+</html>
